@@ -7,6 +7,7 @@ var helpers = require("../utils/helpers");
 var Results = React.createClass({
     getInitialState: function() {
     return { 
+      message: "Searching...",
       results: []
     };
   },
@@ -18,7 +19,11 @@ var Results = React.createClass({
     helpers.runQuery(this.props.params.searchString).then(function(data) {
         if (data !== this.state.results) {
           console.log(data);
-          this.setState({ results: data });    
+          this.setState({ results: data });  
+          if (data.length == 0){
+            this.setState({ message: "No Articles Found."})
+          }
+
           
         }
         // This code is necessary to bind the keyword "this" when we say this.setState
@@ -83,7 +88,7 @@ var Results = React.createClass({
             {/* if we got no results from the search, render appropriate message */}    
             {this.state.results.length == 0 &&
               <h2>
-                No Articles Found.
+                {this.state.message}
               </h2>
             } 
 
