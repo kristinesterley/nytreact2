@@ -1,7 +1,7 @@
 
 // Include React
 var React = require("react");
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 var Results = require("./Results");
 
 // Creating the Search component
@@ -28,7 +28,7 @@ var Search = React.createClass({
     if (prevState.searchQuery !== this.state.searchQuery) {
       console.log("UPDATED");
       //send the query to the results module to run
-      browserHistory.push('/Search/'+ this.state.searchQuery);
+      hashHistory.push('/Search/'+ this.state.searchQuery);
     }
   },
 
