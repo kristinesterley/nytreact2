@@ -5,8 +5,7 @@
   "main": "public/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w",
-    "start": "--history-api-fallback"
+    "build": "webpack -w"
   },
   "author": "kristin esterley",
   "license": "ISC",
